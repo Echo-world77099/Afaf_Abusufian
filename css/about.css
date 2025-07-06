@@ -1,0 +1,875 @@
+        /* متغيرات الألوان */
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+        :root {
+            --primary-color: #000000;
+            --secondary-color: #D4AF37;
+            --text-color: #FFFFFF;
+            --text-secondary: #D4AF37;
+            --bg-color: #0A0A0A;
+            --card-bg: #1A1A1A;
+            --menu-bg: rgba(10, 10, 10, 0.95);
+        }
+
+        /* إعدادات عامة */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+      font-family: "Amiri", serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            overflow-x: hidden;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            margin-bottom: 50px;
+            text-align: center;
+            color: var(--text-secondary);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+
+        /* الهيدر - مطابق لصفحة index */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 20px 0;
+            background-color: rgba(10, 10, 10, 0.9);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header.scrolled {
+            padding: 15px 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+ 
+        .logo h2 {
+           color: var(--secondary-color);
+        }
+        
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-item {
+            margin-left: 25px;
+            position: relative;
+        }
+
+        .nav-link {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            font-size: 1rem;
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            right: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--secondary-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+            left: 0;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--secondary-color);
+        }
+
+        .language-switcher {
+            display: flex;
+            align-items: center;
+            margin-left: 15px;
+        }
+
+        .language-switcher img {
+            width: 20px;
+            height: 20px;
+            margin-left: 5px;
+        }
+
+        .language-switcher:hover img {
+            transform: rotate(360deg);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px auto;
+            transition: all 0.3s ease;
+            background-color: var(--text-color);
+        }
+
+        .hamburger.active .bar:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+
+        .hamburger.active .bar:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active .bar:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
+        /* قسم المقدمة */
+        .about-hero {
+            padding: 150px 0 80px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, #1A1A1A 100%);
+            position: relative;
+            overflow: hidden;
+            margin-top: 100px;
+
+        }
+
+        .about-hero .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .about-hero-content {
+            flex: 1;
+            padding-right: 50px;
+        }
+
+        .about-hero-content h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            color: var(--text-secondary);
+        }
+
+        .about-hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .university-badge {
+            display: inline-flex;
+            align-items: center;
+            margin-top: 20px;
+            background-color: rgba(212, 175, 55, 0.1);
+            padding: 12px 18px;
+            border-radius: 8px;
+            border-left: 3px solid var(--secondary-color);
+            transition: all 0.3s ease;
+        }
+
+        .university-badge:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.2);
+        }
+
+        .university-badge img {
+            width: 40px;
+            height: 40px;
+            margin-left: 12px;
+        }
+
+        .university-badge span {
+            font-weight: 500;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .about-hero-image {
+            flex: 1;
+            text-align: center;
+            position: relative;
+        }
+
+        .about-hero-image img {
+            max-width: 100%;
+            max-height: 400px;
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            border: 4px solid var(--secondary-color);
+            object-fit: cover;
+            transition: all 0.5s ease;
+        }
+
+        .about-hero-image img:hover {
+            transform: scale(1.03);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        /* المعلومات الشخصية */
+        .personal-info {
+            padding: 60px 0;
+            background-color: var(--card-bg);
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .info-card {
+            background-color: var(--bg-color);
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            border-bottom-color: var(--secondary-color);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .info-icon {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .info-card:hover .info-icon {
+            transform: rotate(360deg);
+        }
+
+        .info-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            color: var(--text-secondary);
+        }
+
+        .info-card p {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        /* الخط الزمني الأكاديمي */
+        .academic-timeline {
+            padding: 60px 0;
+            background-color: var(--bg-color);
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 20px;
+            width: 3px;
+            background: var(--secondary-color);
+            z-index: 1;
+        }
+
+        .timeline-card {
+            position: relative;
+            margin-bottom: 30px;
+            padding-left: 50px;
+            width: 100%;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .timeline-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .timeline-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .timeline-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--secondary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            position: absolute;
+            left: 0;
+            z-index: 2;
+            font-size: 1rem;
+            box-shadow: 0 0 0 4px var(--bg-color);
+            transition: all 0.3s ease;
+        }
+
+        .timeline-card:hover .timeline-icon {
+            transform: scale(1.1) rotate(15deg);
+            box-shadow: 0 0 0 4px var(--bg-color), 0 5px 15px rgba(212, 175, 55, 0.4);
+        }
+
+        .timeline-date {
+            color: var(--secondary-color);
+            font-weight: bold;
+            margin-right: 10px;
+            font-size: 1rem;
+        }
+
+        .timeline-body {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .timeline-card:hover .timeline-body {
+            transform: translateX(5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+
+        .timeline-body h3 {
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+            font-size: 1.2rem;
+        }
+
+        .institution {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.95rem;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .timeline-body ul {
+            list-style: none;
+            padding-right: 15px;
+        }
+
+        .timeline-body li {
+            position: relative;
+            margin-bottom: 8px;
+            padding-right: 15px;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .timeline-body li::before {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 9px;
+            width: 8px;
+            height: 8px;
+            background: var(--secondary-color);
+            border-radius: 50%;
+        }
+
+        /* المهارات مع تأثير العد التصاعدي */
+        .skills-section {
+            padding: 60px 0;
+            background-color: var(--card-bg);
+        }
+
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .skill-category {
+            flex: 1;
+            min-width: 280px;
+            background: var(--bg-color);
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .skill-category.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .skill-category h3 {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .skill-category h3 i {
+            margin-left: 10px;
+            font-size: 1.2rem;
+        }
+
+        .skill-item {
+            margin-bottom: 20px;
+        }
+
+        .skill-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .skill-name {
+            font-size: 0.95rem;
+        }
+
+        .skill-percent {
+            color: var(--secondary-color);
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        .skill-bar {
+            height: 8px;
+            background: #333;
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: var(--secondary-color);
+            border-radius: 4px;
+            width: 0;
+            transition: width 1.5s ease-out;
+        }
+
+        /* قسم الفلسفة الشخصية */
+        .philosophy-section {
+            padding: 100px 0;
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('philosophy-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            text-align: center;
+            position: relative;
+        }
+
+        .philosophy-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .philosophy-content.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .philosophy-content h2 {
+            font-size: 2.2rem;
+            margin-bottom: 30px;
+            color: var(--text-secondary);
+        }
+
+        .philosophy-content blockquote {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            color: var(--text-color);
+            position: relative;
+            padding: 0 40px;
+            margin-bottom: 30px;
+        }
+
+        .philosophy-content blockquote::before,
+        .philosophy-content blockquote::after {
+            content: '"';
+            font-size: 3rem;
+            color: var(--secondary-color);
+            opacity: 0.5;
+            position: absolute;
+        }
+
+        .philosophy-content blockquote::before {
+            top: -20px;
+            right: 0;
+        }
+
+        .philosophy-content blockquote::after {
+            bottom: -40px;
+            left: 0;
+        }
+
+        .signature {
+            margin-top: 30px;
+        }
+
+        .signature img {
+            height: 80px;
+            filter: brightness(0) invert(1) sepia(1) hue-rotate(30deg) saturate(5);
+            opacity: 0.9;
+        }
+
+        /* الفوتر */
+        .footer {
+            background-color: #000;
+            padding: 60px 0 0;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo img {
+            height: 120px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .footer-logo img:hover {
+            transform: rotate(5deg) scale(1.1);
+        }
+
+        .footer-logo p {
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+        }
+
+        .footer-links h3,
+        .footer-social h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--text-secondary);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+            position: relative;
+        }
+
+        .footer-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            right: 0;
+            width: 0;
+            height: 1px;
+            background-color: var(--secondary-color);
+            transition: width 0.3s ease;
+        }
+
+        .footer-links a:hover::after {
+            width: 100%;
+            left: 0;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--text-color);
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+        }
+
+        .social-icons a:hover {
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            transform: translateY(-3px) rotate(10deg);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding: 20px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.85rem;
+        }
+
+        /* التأثيرات المتحركة */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* التجاوب مع الشاشات الصغيرة */
+        @media (max-width: 992px) {
+            .about-hero .container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .about-hero-content {
+                padding-right: 0;
+                margin-bottom: 40px;
+            }
+            
+            .university-badge {
+                margin: 20px auto 0;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .skills-container {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 768px) {
+  
+            .about-hero-content h1 {
+                font-size: 2.2rem;
+            }
+            
+            .about-hero-content p {
+                font-size: 1.1rem;
+            }
+            
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .timeline::before {
+                left: 18px;
+            }
+            
+            .timeline-card {
+                padding-left: 45px;
+            }
+            
+            .timeline-icon {
+                width: 36px;
+                height: 36px;
+            }
+            
+            .philosophy-content blockquote {
+                font-size: 1.1rem;
+                padding: 0 20px;
+            }
+        }
+
+        
+             @media (max-width: 860px) {
+            .hamburger {
+                display: block;
+            }
+            
+            .hamburger.active .bar:nth-child(2) {
+                opacity: 0;
+            }
+            
+            .hamburger.active .bar:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+            
+            .hamburger.active .bar:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 100px;
+                right: -100%;
+                width: 80%;
+                height: calc(100vh - 80px);
+                background-color: rgba(10, 10, 10, 0.95);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: all 0.5s ease;
+                gap: 40px;
+            }
+            
+            .nav-menu.active {
+                right: 0;
+            }
+            
+            .nav-item {
+                margin-left: 0;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .about-hero {
+                padding: 120px 0 60px;
+            }
+            
+            .about-hero-content h1 {
+                font-size: 2rem;
+            }
+            
+            .university-badge {
+                padding: 10px 15px;
+            }
+            
+            .university-badge img {
+                width: 35px;
+                height: 35px;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+                margin-bottom: 40px;
+            }
+            
+            .timeline-icon {
+                width: 32px;
+                height: 32px;
+                font-size: 0.9rem;
+            }
+            
+            .timeline-card {
+                padding-left: 40px;
+            }
+            
+            .timeline::before {
+                left: 16px;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .philosophy-content h2 {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .about-hero-content h1 {
+                font-size: 1.8rem;
+            }
+            
+            .about-hero-image img {
+                max-height: 300px;
+            }
+            
+            .timeline-icon {
+                width: 30px;
+                height: 30px;
+            }
+            
+            .timeline-card {
+                padding-left: 35px;
+            }
+            
+            .timeline::before {
+                left: 15px;
+            }
+            
+            .philosophy-content blockquote {
+                font-size: 1rem;
+            }
+        }
+    
